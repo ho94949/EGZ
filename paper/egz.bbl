@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{doi:10.1137/1.9781611976496.5}
+Jean Cardinal and John Iacono.
+\newblock {\em Modular Subset Sum, Dynamic Strings, and Zero-Sum Sets}, pages
+  45--56.
+
 \bibitem{2DELLUNGO20092658}
 Alberto {del Lungo}, Claudio Marini, and Elisa Mori.
 \newblock A polynomial-time algorithm for finding zero-sums.

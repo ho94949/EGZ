@@ -48,7 +48,7 @@
 
 \begin{document}
 
-\title{$\mathcal{O}(n \log n)$ algorithm finding a solution of Erdős-Ginzburg-Ziv theorem.}
+\title{Simple deterministic $\mathcal{O}(n \log n)$ algorithm finding a solution of Erdős-Ginzburg-Ziv theorem.}
  
 \author{Seokhwan Choi, Hanpil Kang, Dongjae Lim}
 \maketitle
@@ -56,7 +56,7 @@
 \setcounter{page}{1}
 
 \begin{abstract}
-    \EGZT\ is a famous theorem in additive number theory, which states any sequence of $2n-1$ integers contains a subsequence of $n$ elements, with their sum being a multiple of $n$. In this article, we provide an algorithm finding a solution of \EGZT\ in $\mathcal{O}(n \log n)$ time. This is the first known quasi-linear time algorithm finding a solution of \EGZT.
+    \EGZT\ is a famous theorem in additive number theory, which states any sequence of $2n-1$ integers contains a subsequence of $n$ elements, with their sum being a multiple of $n$. In this article, we provide a deterministic algorithm finding a solution of \EGZT\ in $\mathcal{O}(n \log n)$ time. This is the first known deterministic $\mathcal{O}(n \log n)$ time algorithm finding a solution of \EGZT.
 \end{abstract}
 
 
@@ -185,7 +185,7 @@ For inductive case $n \ge 2$, if $n$ is prime, $EGZ(n)$ holds by Theorem 1. if $
 
 \section{Efficient algorithm finding solution of \EGZT.}
 
-By implementing constructive proof directly, we can provide an algorithm finding solutions of \EGZT\ of a sequence. By improving the algorithm for the case where $n$ is prime, we can achieve an overall time complexity of $\mathcal{O}(n \log n)$. Improvement uses implicit management of set $S_{1}, S_{2}, \cdots, S_{n}$ and modified binary search. This improves the result of \cite{2DELLUNGO20092658}.
+By implementing constructive proof directly, we can provide an algorithm finding solutions of \EGZT\ of a sequence. By improving the algorithm for the case where $n$ is prime, we can achieve an overall time complexity of $\mathcal{O}(n \log n)$. Improvement uses implicit management of set $S_{1}, S_{2}, \cdots, S_{n}$ and modified binary search. This improves the result of \cite{2DELLUNGO20092658} and \cite{doi:10.1137/1.9781611976496.5}. 
 
 \subsection{$n$ is prime}
 
