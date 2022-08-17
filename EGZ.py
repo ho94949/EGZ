@@ -1,32 +1,42 @@
+def Find_t(p, T, d, u, v):
+    l, h = u*pow(d, -1, p) % p, p+v*pow(d, -1, p) % p
+    while l+1 != h:
+        m = (l+h)//2
+        if T[m*d % p]:
+            l = m
+        else:
+            h = m
+    return h*d % p
+
+
 def EGZ_prime(p, a):
-    k = sorted(range(2*p-1), key=lambda x: a[x]%p)
+    k = sorted(range(2*p-1), key=lambda x: a[x] % p)
     L = [False] * (2*p-1)
     for i in range(p-1):
-        if a[k[1+i]]%p == a[k[p+i]]%p:
+        if a[k[1+i]] % p == a[k[p+i]] % p:
             for i in range(1+i, 1+p+i):
                 L[k[i]] = True
             return L
 
     s = sum((a[k[i]] for i in range(p))) % p
-    T, D = [False]*p, [None]*p
+    T, P = [False]*p, [None]*p
     T[s] = True
-    for i in range(p-1):
-        if T[0]: break
-        d = (a[k[p+i]]-a[k[1+i]])%p
-        l, h = s*pow(d, -1, p)%p, p
-        while l+1 != h:
-            m = (l+h)//2
-            if T[m*d%p]: l = m
-            else: h = m
-        T[h*d%p], D[h*d%p] = True, i
+    for i in range(1, p):
+        if T[0]:
+            break
+        t = Find_t(p, T, (a[k[p+i-1]]-a[k[i]]) % p, s, 0)
+        T[t] = True
+        P[t] = i
 
     c = 0
-    for i in range(p): L[k[i]] = True
+    for i in range(p):
+        L[k[i]] = True
     while s != c:
-        L[k[p+D[c]]], L[k[1+D[c]]] = True, False
-        c = (c - (a[k[p+D[c]]]-a[k[1+D[c]]]))%p
+        L[k[p+P[c]-1]], L[k[P[c]]] = True, False
+        c = (c - (a[k[p+P[c]-1]]-a[k[P[c]]])) % p
 
     return L
+
 
 def EGZ_composite(p, q, a):
     S, T = list(range(p-1)), [None]*(2*q-1)
@@ -40,15 +50,19 @@ def EGZ_composite(p, q, a):
 
     for i in range(2*q-1):
         if ret[i]:
-            for j in T[i]: L[j] = True
-
+            for j in T[i]:
+                L[j] = True
     return L
 
+
 def EGZ(n, a):
-    if n == 1: return [True]
+    if n == 1:
+        return [True]
     for i in range(2, n):
-        if n%i == 0: return EGZ_composite(i, n//i, a)
+        if n % i == 0:
+            return EGZ_composite(i, n//i, a)
     return EGZ_prime(n, a)
+
 
 if __name__ == '__main__':
     N = int(input())
