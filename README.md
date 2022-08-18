@@ -4,3 +4,4 @@ Implementation of [Simple deterministic O\(n log n\) algorithm finding solutions
 
 - `EGZ.py`: Implements procedures with 0-based index and standard I/O helper.
 - `tests`: Testdata testing correctness of `EGZ.py`
+- `linear.pdf`: First draft of linear time algorithm finding zero-sum.
